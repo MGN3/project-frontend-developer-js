@@ -1,17 +1,19 @@
 # E-commerce User Interface - LINK: https://mgn3.github.io/project-frontend-developer-js/
+> [!IMPORTANT]
+> The branch with the work of the previous 2 months is: refactoring/mainJavaScritpFile
 
-Made with:
+This is the main frontend project I have worked on. It started as a fork from a Platzi course and every day it gets new changes, features and improvements.
+I made several changes by now and I mainly work in this proyect alongside the a backend **ASP.NET Core MVC** API to create new features.
 
+### Preview(many changes found in the other branch): https://mgn3.github.io/project-frontend-developer-js/
+
+### Stack
 - HTML5
 - CSS3
 - Vanilla JavaScript
 
-This webpage is a modified version of the basic template given in the Platzi "Practical JavasScript Course".
-The main point is learning the different ways to manipulate the DOM with JavaScript . I made several changes to the template, specially in the JavaScript file that creates cards, modals, events and more. The CSS part was also an interesting challenge, where many different components are interconnected and the complexity was surprising.
-
 ## Conclusions
-Since this was my first approach to JavaScript I think I have learned many things that make this language so powerfull and ready to go. However, I felt a bit overwhelmed by the lack of a more structured design pattern or a basic class structure as a basic way to do things in other languages I know like Java and C#.
-There are many things I have to learned about Front-end and I get the feeling that it's complexity is greater than what is usually believed.
+There are many things I have learned about the frontend. I think that the complexity of modern responsive User Interfaces is greater than what is usually believed, where many different components are interconnected.
 
 ## Screenshots:
 ### Main view
