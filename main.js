@@ -4,7 +4,7 @@ const getAllProducts = 'https://localhost:7202/api/Products'; // MoveITMVC url: 
 const productList = [];
 
 
-async function fetchData() {
+async function fetchProductsData() {
   try {
     const response = await fetch(getAllProducts, {
       method: 'GET',
@@ -14,7 +14,7 @@ async function fetchData() {
     });
 
     if (!response.ok) {
-      throw new Error('La solicitud no fue exitosa');
+      throw new Error('Get request failed');
     }
 
     const data = await response.json();
@@ -33,18 +33,15 @@ async function fetchData() {
     //Order the array of products by category(or by other property)
     productList.sort((a, b) => b.category - a.category);
 
-    //console.log('Datos obtenidos:', productList);
-
     // Function call to create product cards and product modals
     createProductCards(productList);
     createProductModals(productList);
   } catch (error) {
-    // In case of error:
     console.error('Error trying to fetch the product list:', error);
   }
 }
 
-fetchData();
+fetchProductsData();
 
 ///////////// Card creation function. //////////////////
 function createProductCards(productList) {
