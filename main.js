@@ -399,11 +399,6 @@ function addToCart(productIndex) {
     figure.appendChild(image);
     shoppingCartDiv.appendChild(figure);
 
-    //Not showing the product name, could be added if the main div was broader, but the mobile version will make elements stack vertically 
-    // const name = document.createElement("p");
-    // name.textContent = product.name;
-    // shoppingCartDiv.appendChild(name);
-
     const quantity = document.createElement("p");
     quantity.classList.add("quantity");
     quantity.textContent = "x1";
@@ -455,10 +450,10 @@ function addToCart(productIndex) {
   totalPriceElement.textContent = "$" + totalPrice.toFixed(2);
   console.log(cartItems);
   // return cartItems;
-
+}
 
   //ENVIAR AL SERVIDOR LOS DATOS DEL CARRITO Y GENERAR UN NUEVO REGISTRO EN LA BASE DE DATOS. ¿¿Hacer primero inicio de sesion??¿
-}
+
 
 ////////////////// CHAT CODE //////////////////////
 let textArea = document.getElementById("user-msg");
