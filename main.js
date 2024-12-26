@@ -51,15 +51,18 @@ function createProductCards(productList) {
   for (product of productList) {
     const cardsContainer = document.querySelector(".cards-container");
 
+    // Creates the main card element and assigns product category
     const productCard = document.createElement("div");
     productCard.classList.add("product-card");
     productCard.setAttribute("category", product.category);
 
+    // Creates an image element for the product
     const productImg = document.createElement("img");
     productImg.setAttribute("src", product.urlImg);
     productImg.setAttribute("alt", "Ups, error loading product image.");
     productImg.setAttribute("id", product.id);
 
+    // Different sub elements for the product card
     const productData = document.createElement("div");
     productData.classList.add("product-info");
 
@@ -71,18 +74,21 @@ function createProductCards(productList) {
     const productName = document.createElement("p");
     productName.innerText = product.name;
 
+    // Creates a clickable icon for adding the product to the cart
     const productIconFigure = document.createElement("figure");
     const productIconImg = document.createElement("img");
     productIconImg.setAttribute("src", "./icons/bt_add_to_cart.svg");
     productIconImg.setAttribute("onclick", "addToCart(" + product.id + ")");
     productIconImg.setAttribute("alt", "Cart Icon");
 
+    // Builds the complete card structure usign append method
     productData.append(productDataChild, productIconFigure);
     productDataChild.append(productPrice, productName);
     productIconFigure.append(productIconImg);
     productCard.append(productImg, productData);
     cardsContainer.append(productCard);
 
+    // Adds an event listener to open an overlay when the product image is clicked
     productImg.addEventListener("click", () => {
       const overlayId = document.querySelector("#overlay" + productImg.id);
       overlayId.classList.remove("inactive");
@@ -166,7 +172,6 @@ function createProductModals(productList) {
       event.target === overlay ? overlay.classList.add("inactive") : null;
     });
   }
-
 }
 
 
@@ -193,7 +198,6 @@ function hideMenu() {
 //screenSize check alternatives-> window.innerWidth // window.matchMedia("(max-width: 770px)").matches //  $(window).width()
 function screenSize() {
   if (document.documentElement.clientWidth < 770) {
-    // Is this better?:  desktopMenu.setAttribute('style', 'visibility:hidden');
     desktopMenu.style.visibility = "hidden";
   } else {
     desktopMenu.style.visibility = "visible";
@@ -286,19 +290,13 @@ const surfskateButton = document.querySelector("#surfskate");
 const rollerButton = document.querySelector("#roller");
 const otherButton = document.querySelector("#other");
 
-function showProductsByCategory(category) {
+function showProductsByCategory(categoryToShow) {
   const productCards = document.querySelectorAll(".product-card");
 
   productCards.forEach((card) => {
     const productCategory = card.getAttribute("category");
-
-    if (productCategory !== category && category !== "all") {
-      card.classList.add("inactive");
-    } else if (category == "all") {
-      card.classList.remove("inactive");
-    } else {
-      card.classList.remove("inactive");
-    }
+    const shouldShow = categoryToShow === "all" || productCategory === categoryToShow;
+    card.classList.toggle("inactive", !shouldShow);
   });
 }
 
